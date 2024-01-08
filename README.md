@@ -12,3 +12,8 @@ bin/rails webpacker:install
 
 bin/rails webpacker:compile
 ```
+
+## 6-3-3 Githubアカウントでログインする機能の作成
+```
+EDITOR="code --wait" rails credentials:edit
+```
