@@ -1,24 +1,14 @@
-# README
+# AWESOME_EVENTS
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## 6-2-4 Bootstrapの導入
+```
+nodebrew compile v15.14.0
 
-Things you may want to cover:
+nodebrew use v15.14.0
 
-* Ruby version
+npm install -g yarn
 
-* System dependencies
+bin/rails webpacker:install
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+bin/rails webpacker:compile
+```
