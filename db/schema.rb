@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2024_01_09_220824) do
+ActiveRecord::Schema.define(version: 2024_01_09_234347) do
 
   create_table "events", force: :cascade do |t|
     t.bigint "owner_id"
@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 2024_01_09_220824) do
     t.text "content", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["owner_id"], name: "index_events_on_owner_id"
   end
 
   create_table "users", force: :cascade do |t|
