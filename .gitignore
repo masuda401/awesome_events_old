@@ -41,3 +41,7 @@ yarn-debug.log*
 .yarn-integrity
 
 .idea/
+
+# Ignore vendor
+/vendor/*
+!/vendor/.keep

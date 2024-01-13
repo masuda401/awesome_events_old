@@ -17,3 +17,10 @@ bin/rails webpacker:compile
 ```
 EDITOR="code --wait" rails credentials:edit
 ```
+
+## 7-3-2
+```
+bundle config set --local path vendor/bundle
+
+bundle install
+```
