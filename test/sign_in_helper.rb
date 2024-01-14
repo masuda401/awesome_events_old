@@ -1,6 +1,6 @@
 module SignInHelper
   def sign_in_as(user)
-    OmiAuth.config.test_mode = true
+    OmniAuth.config.test_mode = true
     OmniAuth.config.add_mock(
       user.provider,
       uid: user.uid,
@@ -9,7 +9,7 @@ module SignInHelper
     )
 
     visit root_url
-    click_on "GitHubでログイン"
+    click_on "Githubでログイン"
     @current_user = user
   end
 
