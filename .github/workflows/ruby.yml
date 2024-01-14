@@ -30,7 +30,18 @@ jobs:
           sudo apt-get -yqq install libsqlite3-dev
           bundle install --jobs 4 --retry 3
           bin/rails db:create
-          bin/rails db:migrate  
+          bin/rails db:migrate
+
+      - name: Install Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 14
+
+      - name: Webpacker compile
+        run: |
+          npm install -g yarn
+          bin/rails webpacker:install
+          bin/rails webpacker:compile
 
       - name: Run tests
         run: bin/rails test
