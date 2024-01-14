@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :events do
+  resources :events, only: %i[new create show edit update destroy] do
     resources :tickets
   end
 
@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   get 'status' => 'status#index', defaults: { format: 'json' }
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
-  resource :retirements
+  resource :retirements, only: %i[new create]
 
   match "*path" => "application#error404", via: :all
 end
