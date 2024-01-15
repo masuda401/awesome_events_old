@@ -44,9 +44,11 @@ jobs:
           bin/rails webpacker:compile
 
       - name: Run tests
+        if: always()
         run: bin/rails test
 
       - name: Run system tests
+        if: always()
         run: bin/rails test:system
 
   lint:
@@ -62,7 +64,9 @@ jobs:
           ruby-version: 3.0.6
 
       - name: Security audit application code
+        if: always()
         run: bundle exec brakeman -q -w2
 
       - name: Lint Ruby files
+        if: always()
         run: bundle exec rubocop --parallel
