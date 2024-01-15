@@ -1,0 +1,16 @@
+inherit_from: .rubocop_todo.yml
+
+require:
+  - rubocop-performance
+  - rubocop-rails
+
+AllCops:
+  DisabledByDefault: true
+
+Lint:
+  Enabled: true
+
+Security:
+  Enabled: true
+
+#65 files inspected, 249 offenses detected, 221 offenses autocorrectable
