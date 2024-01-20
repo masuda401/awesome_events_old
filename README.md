@@ -24,3 +24,10 @@ bundle config set --local path vendor/bundle
 
 bundle install
 ```
+
+## 10
+```
+docker build --platform linux/amd64 -t myrailsapp .
+
+DOCKER_BUILDKIT=1 docker build --platform linux/amd64 -t myrailsapp -f Dockerfile-buildkit .
+```
