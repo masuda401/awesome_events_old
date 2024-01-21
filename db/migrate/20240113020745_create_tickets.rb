@@ -8,6 +8,6 @@ class CreateTickets < ActiveRecord::Migration[6.0]
       t.timestamps
     end
 
-    add_index :tickets, %i[event_id, user_id], unique: true
+    add_index :tickets, %i[event_id user_id], unique: true
   end
 end
