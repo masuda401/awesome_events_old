@@ -28,9 +28,9 @@ gem 'bootsnap', '>= 1.4.2', require: false
 
 gem 'hamlit-rails', '~> 0.2.3'
 
-gem 'omniauth', '~> 1.9.1'
-gem 'omniauth-github', '~> 1.4.0'
-gem 'omniauth-rails_csrf_protection', '~> 0.1.2'
+gem 'omniauth', '~> 2.1.2'
+gem 'omniauth-github', '~> 2.0.1'
+gem 'omniauth-rails_csrf_protection', '~> 1.0.1'
 
 gem 'rails-i18n', '~> 6.0.0'
 
