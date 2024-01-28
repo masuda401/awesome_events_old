@@ -20,14 +20,29 @@ services:
       MYSQL_USERNAME: app
       MYSQL_PASSWORD: password
       MYSQL_HOST: mysql
+      ROLLBAR_ACCESS_TOKEN: ${ROLLBAR_ACCESS_TOKEN:-123}
     ports:
       - "3000:3000"
     depends_on:
       - mysql
+      - nginx
     volumes:
       - .:/app
       - awesome_events_bundle:/app/vendor/bundle
       - awesome_events_node_modules:/app/node_modules
+      - awesome_events_public:/app/public
+      - awesome_events_socket:/app/sockets
+    command: ["bundle", "exec", "puma", "-b", "unix:///app/sockets/puma.sock"]
+
+  nginx:
+    image: nginx:1.17
+    ports:
+      - "8080:80"
+    command: [nginx]
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf
+      - awesome_events_public:/app/public
+      - awesome_events_socket:/app/sockets
 
 volumes:
   mysql-data:
@@ -35,4 +50,8 @@ volumes:
   awesome_events_bundle:
     driver: local
   awesome_events_node_modules:
+    driver: local
+  awesome_events_public:
+    driver: local
+  awesome_events_socket:
     driver: local
