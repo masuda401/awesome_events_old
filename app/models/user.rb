@@ -5,6 +5,8 @@ class User < ApplicationRecord
 
   before_destroy :check_all_events_finished
 
+  validates :phone_number, format: { with: /\A0\d{9,10}\z/ }
+
   def self.find_or_create_from_auth_hash!(auth_hash)
     provider = auth_hash[:provider]
     uid = auth_hash[:uid]
@@ -18,6 +20,10 @@ class User < ApplicationRecord
   end
 
   private
+
+  def mobile_phone_number?
+    phone_number.match(/\A0[7-9]0\d{8}\z/)
+  end
 
   def check_all_events_finished
     now = Time.zone.now
