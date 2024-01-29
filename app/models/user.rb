@@ -5,7 +5,7 @@ class User < ApplicationRecord
 
   before_destroy :check_all_events_finished
 
-  validates :phone_number, format: { with: /\A0\d{9,10}\z/ }
+  composed_of :phone_number, mapping: %w[phone_number value]
 
   def self.find_or_create_from_auth_hash!(auth_hash)
     provider = auth_hash[:provider]
